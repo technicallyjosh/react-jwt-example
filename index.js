@@ -25,11 +25,19 @@ router.post('/auth', function* () {
     const username = this.request.body.username;
     const password = this.request.body.password;
 
-    if (username !== 'username' && password !== 'password') {
+    if (username !== 'chuck' && password !== 'norris') {
         this.throw(401, 'Invalid username/password.');
     }
 
-    const token = jsonwebtoken.sign({ username }, secret, {
+    const user = {
+        username,
+        email: 'chuck@norris.com',
+        firstName: 'Chuck',
+        lastName: 'Norris',
+        roles: ['almighty']
+    };
+
+    const token = jsonwebtoken.sign(user, secret, {
         issuer: 'localhost',
         audience: 'someaudience',
         expiresIn: '1d'

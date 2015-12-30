@@ -29,7 +29,7 @@ export function auth(state = initState, action) {
 export function user(state = {}, action) {
     switch (action.type) {
         case USER:
-            return Object.assign({}, state, action.user);
+            return action.user;
         default:
             return state;
     }

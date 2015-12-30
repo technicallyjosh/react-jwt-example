@@ -1,20 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { autoRehydrate } from 'redux-persist';
 import reducers from './reducers';
 import AppProvider from './containers/AppProvider.jsx';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import Nav from './components/Nav.jsx';
 import Home from './containers/Home.jsx';
 import Login from './containers/Login.jsx';
 import Logout from './containers/Logout.jsx';
 import NoMatch from './containers/NoMatch.jsx';
 
+const history                   = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(thunk, createLogger())(createStore);
-const store = compose(autoRehydrate())(createStoreWithMiddleware)(reducers);
+const store                     = compose(autoRehydrate())(createStoreWithMiddleware)(reducers);
 
 class App extends React.Component {
     render() {
@@ -40,13 +42,13 @@ function requireAuth(nextState, replaceState) {
 
 render((
     <AppProvider store={store}>
-        <Router history={browserHistory}>
+        <Router history={history}>
             <Route path="/" component={App}>
                 <IndexRoute component={Home} onEnter={requireAuth} />
                 <Route path="login" component={Login} />
                 <Route path="logout" component={Logout} />
+                <Route path="*" component={NoMatch} />
             </Route>
-            <Route path="*" component={NoMatch} />
         </Router>
     </AppProvider>
 ), document.getElementById('App'));

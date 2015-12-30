@@ -37,6 +37,7 @@ function loginSuccess(token) {
 }
 
 export function logout() {
+    localStorage.removeItem('token');
     return { type: LOGOUT };
 }
 
@@ -54,10 +55,10 @@ export function login(username, password) {
         })
         .then(res => checkHttpStatus(res, true))
         .then(res => res.json())
-        .then(res => {
-            dispatch(loginSuccess(res.token));
+        .then(body => {
+            dispatch(loginSuccess(body.token));
             dispatch(getUser());
-            return res;
+            return body;
         })
         .catch(error => {
             dispatch(loginFailure(error));

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { stateToProps } from '../map';
+import { stateToProps } from '../utils';
 import { login } from '../actions';
+import Alert from '../components/Alert.jsx';
 
 class Login extends React.Component {
     constructor(props) {
@@ -44,17 +45,11 @@ class Login extends React.Component {
         });
     }
 
-    getError() {
-        return (
-            this.state.error ? <div className="alert alert-danger">{this.state.error}</div> : null
-        );
-    }
-
     render() {
         return (
             <div className="col-md-4">
                 <h1>Log In</h1>
-                {this.getError()}
+                <Alert type="danger" message={this.state.error} />
                 <form noValidate onSubmit={e => this.onSubmit(e)}>
                     <div className="form-group">
                         <label className="control-label">Username</label>

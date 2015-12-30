@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { stateToProps } from '../map';
+import { stateToProps } from '../utils';
 
 class Nav extends React.Component {
     render() {

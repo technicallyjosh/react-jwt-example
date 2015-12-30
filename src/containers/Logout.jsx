@@ -2,17 +2,17 @@ import React from 'react';
 import { logout } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import Alert from '../components/Alert.jsx';
 
 class Logout extends React.Component {
     componentDidMount() {
-        localStorage.removeItem('token');
         this.props.dispatch(logout());
     }
 
     render() {
         return (
             <div>
-                <div className="alert alert-success">You are now logged out.</div>
+                <Alert message="You are now logged out" />
                 <div>
                     <Link to="/login">Back to Login</Link>
                 </div>
