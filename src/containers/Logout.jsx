@@ -2,7 +2,7 @@ import React from 'react';
 import { logout } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import Alert from '../components/Alert.jsx';
+import { Alert } from '../components';
 
 class Logout extends React.Component {
     componentDidMount() {

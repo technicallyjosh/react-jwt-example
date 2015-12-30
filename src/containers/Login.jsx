@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { stateToProps } from '../utils';
 import { login } from '../actions';
-import Alert from '../components/Alert.jsx';
+import { Alert } from '../components';
 
 class Login extends React.Component {
     constructor(props) {

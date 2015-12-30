@@ -1,18 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { autoRehydrate } from 'redux-persist';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
-import { autoRehydrate } from 'redux-persist';
 import reducers from './reducers';
-import AppProvider from './containers/AppProvider.jsx';
 import { Router, Route, IndexRoute } from 'react-router';
-import Nav from './components/Nav.jsx';
-import Home from './containers/Home.jsx';
-import Login from './containers/Login.jsx';
-import Logout from './containers/Logout.jsx';
-import NoMatch from './containers/NoMatch.jsx';
+import { Nav } from './components';
+import {
+    AppProvider,
+    Home,
+    Login,
+    Logout,
+    NoMatch
+} from './containers';
 
 const history                   = createBrowserHistory();
 const createStoreWithMiddleware = applyMiddleware(thunk, createLogger())(createStore);
