@@ -7,7 +7,7 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
 
-		this.state = { reason: null };
+        this.state = { reason: null };
     }
 
     componentDidMount() {
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
         switch (query.reason) {
             case 'unauthorized':
                 this.setState({
-					reason: 'Sorry. You do not have access to that resource.'
+                    reason: 'Sorry. You do not have access to that resource.'
                 });
                 break;
             case 'Invalid token':
@@ -35,10 +35,10 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-				<h1>Welcome Home {this.props.userName}</h1>
-				<Alert 
-					type="warning"
-					message={this.state.reason} />
+                <h1>Welcome Home {this.props.userName}</h1>
+                <Alert
+                    type="warning"
+                    message={this.state.reason} />
             </div>
         );
     }
