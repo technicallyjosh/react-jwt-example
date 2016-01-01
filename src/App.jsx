@@ -13,8 +13,8 @@ import {
     Home,
     Login,
     Logout,
-	NoMatch,
-	Administrator
+    NoMatch,
+    Administrator
 } from './containers';
 
 const history                   = createBrowserHistory();
