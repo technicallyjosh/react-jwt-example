@@ -26,11 +26,11 @@ export function dispatchToProps(dispatch) {
     return {
         getRoles: () => dispatch(getRoles()).roles,
         isInRole: role => {
-            const roles = this.getRoles();
+            const roles = dispatch(getRoles()).roles;
             return roles.some(r => r === role);
         },
         isInRoles: roles => {
-            const userRoles = this.getRoles();
+            const userRoles = dispatch(getRoles()).roles;
             return userRoles.some(ur => ur === roles.find(r => r === ur));
         },
         logout: () => dispatch(logout())

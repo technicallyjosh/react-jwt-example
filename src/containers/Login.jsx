@@ -56,7 +56,8 @@ class Login extends React.Component {
                         <input
                             type="text"
                             name="username"
-                            className="form-control"
+							className="form-control"
+							autoFocus={true}
                             onChange={e => this.onChange(e)} />
                     </div>
                     <div className="form-group">

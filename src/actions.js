@@ -69,7 +69,7 @@ export function login(username, password) {
 
 export function getRoles() {
     const user = jwtDecode(localStorage.getItem('token'));
-    const roles = user.wmEmployee.roles;
+    const roles = user.roles;
 
     return {
         type: USER_ROLES,

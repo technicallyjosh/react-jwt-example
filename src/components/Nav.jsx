@@ -11,7 +11,10 @@ class Nav extends React.Component {
                     <div className="navbar-header">
                         <a className="navbar-brand" href="/">
                             React JWT Example
-                        </a>
+						</a>
+						<ul className="nav navbar-nav navbar-left">
+							<li><Link to="/administrator">Administrator</Link></li>
+						</ul>
                     </div>
                     <div>
                         {

@@ -13,7 +13,8 @@ import {
     Home,
     Login,
     Logout,
-    NoMatch
+	NoMatch,
+	Administrator
 } from './containers';
 
 const history                   = createBrowserHistory();
@@ -48,7 +49,8 @@ render((
             <Route path="/" component={App}>
                 <IndexRoute component={Home} onEnter={requireAuth} />
                 <Route path="login" component={Login} />
-                <Route path="logout" component={Logout} />
+				<Route path="logout" component={Logout} />
+				<Route path="administrator" component={Administrator} onEnter={requireAuth} />
                 <Route path="*" component={NoMatch} />
             </Route>
         </Router>

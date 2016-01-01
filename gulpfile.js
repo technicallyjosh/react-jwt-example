@@ -8,7 +8,7 @@ gulp.task('copy', () => {
     return gulp
         .src('src/**/*.html')
         .pipe(gulp.dest('dist'));
-})
+});
 
 gulp.task('webpack', () => {
     return gulp

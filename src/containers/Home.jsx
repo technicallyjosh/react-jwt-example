@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { stateToProps, dispatchToProps } from '../utils';
+import { Alert } from '../components';
 
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { reason: null };
+		this.state = { 
+			reason: null
+		};
     }
 
     componentDidMount() {
@@ -17,9 +20,9 @@ export default class Home extends React.Component {
         }
 
         switch (query.reason) {
-            case 'notInRole':
+            case 'unauthorized':
                 this.setState({
-                    reason: 'Sorry. You do not have access to that.'
+					reason: 'Sorry. You do not have access to that resource.'
                 });
                 break;
             case 'Invalid token':
@@ -34,7 +37,10 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <h1>Welcome Home {this.props.userName}</h1>
+				<h1>Welcome Home {this.props.userName}</h1>
+				<Alert 
+					type="warning"
+					message={this.state.reason} />
             </div>
         );
     }
