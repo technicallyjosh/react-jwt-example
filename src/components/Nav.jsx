@@ -18,7 +18,7 @@ class Nav extends React.Component {
 						</a>
 						<ul className="nav navbar-nav navbar-left">
 							{
-								this.props.isLoggedIn && this.isAdmin() 
+								this.props.isLoggedIn && this.isAdmin()
 									? (<li><Link to="/administrator">Administrator</Link></li>)
 									: null
 							}
@@ -26,13 +26,16 @@ class Nav extends React.Component {
                     </div>
                     <div>
                         {
-                            this.props.isLoggedIn
-								? 
-									(<ul className="nav navbar-nav navbar-right">
-                                		<li>
-                                            <Link to="/logout">Log Out</Link>
-                                        </li>
-                                    </ul>)
+							this.props.isLoggedIn
+								?
+									(
+										<ul className="nav navbar-nav navbar-right">
+											<li>
+												<Link to="/logout">Log Out</Link>
+
+                                            </li>
+										</ul>
+									)
                                 : null
                         }
                     </div>

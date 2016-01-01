@@ -18,11 +18,10 @@ export default (ComposedComponent, roles) => {
 
 		render() {
 			return (
-				<ComposedComponent 
+				<ComposedComponent
 					{...this.props}
 					roles={roles} />
 			);
 		}
-	}
-}
-
+	};
+};
