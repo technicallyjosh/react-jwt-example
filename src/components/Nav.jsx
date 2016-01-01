@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { stateToProps } from '../utils';
+import { stateToProps, dispatchToProps } from '../utils';
 
 class Nav extends React.Component {
-    render() {
+	isAdmin() {
+		return this.props.isInRole('admin');
+	}
+
+	render() {
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
@@ -13,19 +17,22 @@ class Nav extends React.Component {
                             React JWT Example
 						</a>
 						<ul className="nav navbar-nav navbar-left">
-							<li><Link to="/administrator">Administrator</Link></li>
+							{
+								this.props.isLoggedIn && this.isAdmin() 
+									? (<li><Link to="/administrator">Administrator</Link></li>)
+									: null
+							}
 						</ul>
                     </div>
                     <div>
                         {
                             this.props.isLoggedIn
-                                ? (
-                                    <ul className="nav navbar-nav navbar-right">
-                                        <li>
+								? 
+									(<ul className="nav navbar-nav navbar-right">
+                                		<li>
                                             <Link to="/logout">Log Out</Link>
                                         </li>
-                                    </ul>
-                                )
+                                    </ul>)
                                 : null
                         }
                     </div>
@@ -35,4 +42,4 @@ class Nav extends React.Component {
     }
 }
 
-export default connect(stateToProps)(Nav);
+export default connect(stateToProps, dispatchToProps)(Nav);

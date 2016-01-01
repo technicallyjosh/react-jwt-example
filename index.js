@@ -34,7 +34,7 @@ router.post('/auth', function* () {
         email: 'chuck@norris.com',
         firstName: 'Chuck',
         lastName: 'Norris',
-        roles: ['almighty']
+        roles: ['admin']
     };
 
     const token = jsonwebtoken.sign(user, secret, {
