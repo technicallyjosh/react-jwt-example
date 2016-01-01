@@ -7,9 +7,7 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
 
-		this.state = { 
-			reason: null
-		};
+		this.state = { reason: null };
     }
 
     componentDidMount() {
