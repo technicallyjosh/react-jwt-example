@@ -18,3 +18,17 @@ On top of just storage and usage of the JWT token, I've also put in role managem
 * Gulp for building
 
 *If you are not familiar with these key components, I would suggest reading up on them so you can get the most out of this example application.*
+
+## Dependencies
+
+* NodeJS 4+
+* Gulp in global (`npm i -g gulp`)
+
+## Get up and running
+
+```terminal
+npm i
+npm start
+```
+
+This will build the source with babel, watch for changes, and start a web server at http://localhost:3000
